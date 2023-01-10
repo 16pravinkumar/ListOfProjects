@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Light on off</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&family=Great+Vibes&family=Josefin+Sans:wght@200;300;500&family=Josefin+Slab&family=Moon+Dance&family=Mulish&family=Poppins:wght@200;300;400&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(52, 4, 141);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+            font-family: 'Baloo 2', cursive;
+            font-family: 'Josefin Sans', sans-serif;
+            /* font-family: 'Josefin Slab', serif; */
+        }
+
+        .main-container {
+            max-width: 80vw;
+            width: 80vw;
+
+        }
+
+        .main-container h2 {
+            text-align: center;
+        }
+
+        .btn {
+            border: none;
+            background-color: #FFBF00;
+            padding: 10px;
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100x;
+            height: 150px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+
+        }
+
+        h2 {
+            color: white;
+            margin-bottom: 10px;
+        }
+
+        button,
+        img {
+
+            margin: 0 20px;
+        }
+
+        .sub-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .OnOff {
+            margin-bottom: 160px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main-container ">
+        <h2 id="light">Can you turn the light on?</h2>
+        <div class="sub-container">
+            <button class="btn" id="On-btn">Turn on the light</button>
+            <img class="OnOff" id="onAndOff" src="" alt="loading..">
+            <button onclick="hideBulb()" class="btn" id="Off-btn">Turn off the light</button>
+
+        </div>
+
+
+    </div>
+
+    <!-- ************************* Other Method ************************** -->
+
+    <!-- <div class="main-container">
+        <h2 id="light">Can you turn the light on?</h2>
+        <button class="btn" onclick="document.getElementById('image').src='/images/buoff-removebg-preview.png'">Turn off the bulb</button>
+        <img id="image" src="/images/buoff-removebg-preview.png" alt="loading..">
+        <button class="btn" onclick="document.getElementById('image').src='/images/buon-removebg-preview.png'">Turn on the bulb</button>
+    </div> -->
+
+
+    <script>
+        let light = document.getElementById("light");
+        let on_btn = document.getElementById("On-btn");
+        let Off_btn = document.getElementById("Off-btn");
+
+        let onAndOff = document.getElementById("onAndOff");
+        let body = document.getElementsByTagName("body")
+
+
+        let showBulb = () => {
+
+            onAndOff.src = "/images/buon-removebg-preview.png"
+        }
+        let hideBulb = () => {
+            onAndOff.src = "/images/buoff-removebg-preview.png"
+        }
+        hideBulb()
+        on_btn.addEventListener("click", showBulb);
+        //   Off_btn.addEventListener("click",hideBulb);
+
+
+
+
+
+    </script>
+</body>
+
+</html>

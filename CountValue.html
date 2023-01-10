@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Count Value</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&family=Great+Vibes&family=Josefin+Sans:wght@200;300;500&family=Josefin+Slab&family=Moon+Dance&family=Mulish&family=Poppins:wght@200;300;400&family=Roboto:wght@300;400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Josefin Sans', sans-serif;
+        }
+        .main-container {
+            background-color: #7512e6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+        }
+        .main-container div {
+            margin: 12px auto;
+            text-align: center;
+            color: white;
+        }
+        .menu-bar i {
+            font-size: 60px;
+        }
+        .counter {
+            color: rgba(219, 219, 10, 0.795) !important;
+            font-size: 70px;
+            padding: 19px 0;
+            width: 170px;
+        }
+        span {
+            font-weight: 700;
+            font-family: 'Courier New', Courier, monospace;
+        }
+        @media (max-width:500px) {
+            .main-container {
+                display: block;  
+                align-items: center;
+                justify-content: center;
+            }
+            .main-container .sub-main {
+                margin: 0;
+                padding: 15px ;
+            }
+            .menu-bar i {
+                font-size: 30px;
+            }
+            .counter {
+                font-size: 40px;
+                padding: 2px 20px;
+            }
+            span {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+
+
+
+
+        <div class="sub-main">
+            <span class="menu-bar"><i class="fa-solid fa-mug-hot"></i></span>
+            <div class="counter" data-target="4000"></div>
+            <span>Project Completed</span>
+        </div>
+
+        <div class="sub-main">
+            <span class="menu-bar"><i class="fa-sharp fa-solid fa-people-line"></i></span>
+            <div class="counter" data-target="15000"></div>
+            <span>Our Happy Clients</span>
+        </div>
+
+        <div class="sub-main">
+            <span class="menu-bar"><i class="fa-sharp fa-solid fa-bars"></i></span>
+            <div class="counter" data-target="500"></div>
+            <span>On Going Projects</span>
+        </div>
+    </div>
+
+    <script>
+        let counters = document.querySelectorAll(".counter");
+
+        counters.forEach((counter) => {
+            // console.log(counter);
+            counter.innerHTML = 0;
+            let updateValue = () => {
+
+                let data_target = +counter.getAttribute("data-target"); //+coverting string into numbers
+                // console.log(data_target)
+                // console.log(typeof(data_target))
+                let startCount = Number(counter.innerHTML);
+                // console.log( typeof startCount)
+
+                let divide = data_target / 100;
+                if (startCount < data_target) {
+                    counter.innerHTML =Math.round(startCount + divide);
+                    setTimeout(updateValue, 10);
+                }
+                else{
+                    counter.innerHTML = data_target;
+                }
+
+            }
+            updateValue();
+
+        })
+    </script>
+
+</body>
+
+</html>

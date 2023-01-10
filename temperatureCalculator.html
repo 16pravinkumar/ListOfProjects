@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperatur Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Baloo 2', cursive;
+            font-family: 'Josefin Sans', sans-serif;
+            /* font-family: 'Josefin Slab', serif; */
+            /*  */
+        }
+
+        .main-container {
+            background-color: #51C4D3;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100vw;
+            height: 100vh;
+        }
+
+        .inner {
+            width: 70vw;
+            background-color: #126E82;
+            color: wheat;
+            padding: 30px 70px;
+            text-align: center;
+
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn {
+            border: none;
+            background-color: #FFBF00;
+            padding: 10px;
+            color: white;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        select,
+        input {
+            width: 70px;
+            height: 35px;
+            border: none;
+            margin-right: 10px;
+            border-radius: 5px;
+            outline: none;
+            margin-bottom: 10px;
+        }
+
+        input[type="number"] {
+            color: grey;
+            padding-left: 10px;
+            font-weight: 900;
+
+        }
+
+        option {
+            font-weight: 900;
+        }
+
+        #display {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="inner">
+            <form id="tempcal" onsubmit="calculate(); return false">
+                <h2>Please enter the temperature you you'd like to convert</h2>
+                <input type="number" name="userValue" id="userValue" required>
+                <select name="temp_select" id="temp_select">
+                    <option  value="Celsius">Celsius</option>
+                    <option value="Fahrenheit">Fahrenheit (°F)</option>
+                    <option value="Kelvin">Kelvin (K)</option>
+                </select>
+                <br>
+                <input type="submit" class="btn" id="btn">
+                <h4 id="display"></h4>
+            </form>
+
+        </div>
+    </div>
+
+    <script>
+
+
+        let calculate = () => {
+            let userValue = document.getElementById("userValue");
+            // console.log(userValue.value)
+            let btn = document.getElementById("btn");
+            let display = document.getElementById("display");
+            // display.innerHTML = `${userValue.value} `
+            let temp_select = document.getElementById("temp_select");
+            let Values = temp_select.options[temp_select.selectedIndex].value;
+            // console.log(Values);
+            if(Values == 'Celsius'){
+                // (userValue.value°C × 9/5) + 32 = 32°F
+                let Celsius = ((userValue.value-32)*5)/9;
+                display.innerHTML = `Result = ${Celsius}`;
+            }
+            else if(Values == 'Fahrenheit'){
+                // °C = [(°F-32)×5]/9
+                let fahra = (userValue.value * 9/5) + 32;
+                display.innerHTML = `Result = ${fahra}`;
+               
+            }
+
+        };
+
+
+    </script>
+</body>
+
+</html>

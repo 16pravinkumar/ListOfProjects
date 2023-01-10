@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500&family=Great+Vibes&family=Josefin+Sans:wght@200;300;500&family=Josefin+Slab&family=Moon+Dance&family=Mulish&family=Poppins:wght@200;300;400&family=Roboto:wght@300;400&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    body {
+       
+        font-family: 'Baloo 2', cursive;
+        font-family: 'Josefin Sans', sans-serif;
+        /* font-family: 'Josefin Slab', serif; */
+    }    
+    h1{
+        font-size: 100px;
+    }
+    .outer{
+        display: grid;
+        place-items: center;
+        width: 100vw;
+        height: 100vh;
+        background-color: #2a364f;
+    }
+    .inner{
+        width: 80vw;
+        height: 70vh;
+        display: grid;
+        place-items: center;
+
+    }
+    .main-heading{
+        padding: 30px;
+        color: white;
+        text-shadow: 0 1px 8px rgba(255, 255, 255, 0.5);
+        font-size: 140px;
+        font-weight: 500;
+    }
+    #degree{
+        margin: 0;
+        font-size: 40px;
+        position: absolute;
+        bottom: 300px;
+        font-weight: 900;
+    }
+    
+    @media (max-width:600px) {
+        .main-heading{
+        padding: 30px;
+        color: white;
+        text-shadow: 0 1px 8px rgba(255, 255, 255, 0.5);
+        font-size: 100px;
+    }
+    #degree{
+        margin: 0;
+        font-size: 40px;
+        position: absolute;
+        bottom: 220px;
+        font-weight: 900;
+    }
+    }
+  
+</style>
+</head>
+<body>
+   <div class="outer">
+    <div class="inner">
+        <h1 class="main-heading">I am Thermometer<span id="temp" class="fa"></span><sup id="degree">O</sup></h1>
+    </div>
+   </div>
+  <script>
+    let temp = document.getElementById("temp");
+    let degree = document.getElementById("degree");
+    
+    let show = () => {
+        setTimeout(() => {
+            temp.innerHTML = "&#xf2cb";
+            temp.style.color = "#f8b627";
+            degree.style.color = "#f8b627"
+            setTimeout(() => {
+                temp.innerHTML = "&#xf2ca";
+                degree.style.color = "#f8b627"
+                setTimeout(()=>{
+                    temp.innerHTML = "&#xf2c9";
+                    degree.style.color = "#f8b627"
+                    setTimeout(()=>{
+                        temp.innerHTML = "&#xf2c8";
+                        degree.style.color = "#f8b627"
+                         setTimeout(() => {
+                            temp.innerHTML = "&#xf2c7";
+                            temp.style.color = "#d63031";
+                            degree.style.color = "#d63031"
+                         }, 1000);
+                    },1000)
+                },1000)
+            }, 1000);
+        }, 0);
+    }
+    setInterval( show,5000);
+    show();
+   
+   
+  </script>
+</body>
+</html>
